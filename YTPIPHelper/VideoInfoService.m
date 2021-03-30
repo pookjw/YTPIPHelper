@@ -103,7 +103,7 @@
 - (NSURL * _Nullable)greatestQualityVideoStreamingURLFromResultInfo:(NSDictionary *)resultInfo
                                                error:(NSError ** _Nullable)error {
     NSArray<NSDictionary *> *formats = resultInfo[@"streamingData"][@"formats"];
-    if (formats == nil) {
+    if ((formats == nil) && (*error != NULL)) {
         *error = [NSError errorWithDomain:NSBundle.mainBundle.bundleIdentifier
                                      code:VideoInfoServiceErrorNoAvailableStreamingData
                                  userInfo:@{NSLocalizedDescriptionKey: @"No available streamingData formats!"}];
@@ -122,14 +122,14 @@
         }
     }];
     
-    if (tempString == nil) {
+    if ((tempString == nil) && (*error != NULL)) {
         *error = [NSError errorWithDomain:NSBundle.mainBundle.bundleIdentifier
                                      code:VideoInfoServiceErrorNoAvailableStreamingURL
                                  userInfo:@{NSLocalizedDescriptionKey: @"No available streaming URL!"}];
         return nil;
     }
     
-    NSURL *resultURL = [[[NSURL alloc] initWithString:tempString] autorelease];
+    NSURL *resultURL = [[[NSURL alloc] initWithString:(NSString * _Nonnull)tempString] autorelease];
     
     if (resultURL == nil) {
         *error = [NSError errorWithDomain:NSBundle.mainBundle.bundleIdentifier
@@ -144,7 +144,7 @@
 - (NSArray<NSDictionary *> * _Nullable)videoStreamingURLsFromResultInfo:(NSDictionary *)resultInfo
                                                                   error:(NSError ** _Nullable)error {
     NSArray<NSDictionary *> *formats = resultInfo[@"streamingData"][@"formats"];
-    if (formats == nil) {
+    if ((formats == nil) && (*error != NULL)) {
         *error = [NSError errorWithDomain:NSBundle.mainBundle.bundleIdentifier
                                      code:VideoInfoServiceErrorNoAvailableStreamingData
                                  userInfo:@{NSLocalizedDescriptionKey: @"No available streamingData formats!"}];
