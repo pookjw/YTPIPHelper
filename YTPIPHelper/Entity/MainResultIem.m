@@ -19,8 +19,8 @@
 - (BOOL)isEqual:(id)object {
     if ([object isKindOfClass:[MainResultIem class]]) {
         MainResultIem *compareObject = (MainResultIem *)object;
-        return ([self.mainText isEqual:compareObject.mainText] &&
-                [self.secondaryText isEqual:compareObject.secondaryText]);
+        return ([self.mainText isEqualToString:compareObject.mainText] &&
+                [self.secondaryText isEqualToString:compareObject.secondaryText]);
     } else {
         return NO;
     }
