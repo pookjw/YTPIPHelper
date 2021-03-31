@@ -10,6 +10,6 @@
 
 int main(int argc, char * argv[]) {
     NSString * appDelegateClassName;
-    appDelegateClassName = NSStringFromClass([AppDelegate class]);
+    appDelegateClassName = [NSStringFromClass([AppDelegate class]) autorelease];
     return UIApplicationMain(argc, argv, nil, appDelegateClassName);
 }

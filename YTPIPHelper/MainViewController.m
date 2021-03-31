@@ -11,12 +11,14 @@
 
 @implementation MainViewController
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     self.view.backgroundColor = UIColor.systemBackgroundColor;
-    
+}
+
+- (void)requestFromVideoID:(NSString *)videoID {
     VideoInfoService *service = [VideoInfoService new];
-    [service requestVideoStreamingURLsUsingVideoID:@"ffRxVHmUUgY"
+    [service requestVideoStreamingURLsUsingVideoID:videoID
                                  completionHandler:^(NSArray<NSDictionary *> * _Nullable formats, NSError * _Nullable error) {
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{

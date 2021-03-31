@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MainViewController : UIViewController
-
+- (void)requestFromVideoID:(NSString *)videoID;
 @end
 
 NS_ASSUME_NONNULL_END

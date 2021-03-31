@@ -7,24 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F6CDC662614B75A00F3D80E /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CDC652614B75A00F3D80E /* ShareViewController.m */; };
+		4F6CDC6D2614B75A00F3D80E /* YTPIPHelperShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F6CDC622614B75A00F3D80E /* YTPIPHelperShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F3DCEB512612131B00980044 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DCEB502612131B00980044 /* AppDelegate.m */; };
 		F3DCEB542612131B00980044 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DCEB532612131B00980044 /* SceneDelegate.m */; };
 		F3DCEB5C2612131C00980044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3DCEB5B2612131C00980044 /* Assets.xcassets */; };
-		F3DCEB5F2612131C00980044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3DCEB5D2612131C00980044 /* LaunchScreen.storyboard */; };
 		F3DCEB622612131C00980044 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DCEB612612131C00980044 /* main.m */; };
 		F3DCEB6A2612175B00980044 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DCEB692612175B00980044 /* MainViewController.m */; };
 		F3DCEB6D26121B1E00980044 /* VideoInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DCEB6C26121B1E00980044 /* VideoInfoService.m */; };
 		F3DCEB7326122CEE00980044 /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DCEB7226122CEE00980044 /* UIViewController+Category.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4F6CDC6B2614B75A00F3D80E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F3DCEB442612131A00980044 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F6CDC612614B75A00F3D80E;
+			remoteInfo = YTPIPHelperShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4F6CDC6E2614B75A00F3D80E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4F6CDC6D2614B75A00F3D80E /* YTPIPHelperShareExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4F6CDC622614B75A00F3D80E /* YTPIPHelperShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YTPIPHelperShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F6CDC642614B75A00F3D80E /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		4F6CDC652614B75A00F3D80E /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		4F6CDC6A2614B75A00F3D80E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3DCEB4C2612131B00980044 /* YTPIPHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YTPIPHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3DCEB4F2612131B00980044 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F3DCEB502612131B00980044 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F3DCEB522612131B00980044 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		F3DCEB532612131B00980044 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		F3DCEB5B2612131C00980044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F3DCEB5E2612131C00980044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3DCEB602612131C00980044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F3DCEB612612131C00980044 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F3DCEB682612175B00980044 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -36,6 +64,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4F6CDC5F2614B75A00F3D80E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3DCEB492612131B00980044 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,10 +81,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F6CDC632614B75A00F3D80E /* YTPIPHelperShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4F6CDC642614B75A00F3D80E /* ShareViewController.h */,
+				4F6CDC652614B75A00F3D80E /* ShareViewController.m */,
+				4F6CDC6A2614B75A00F3D80E /* Info.plist */,
+			);
+			path = YTPIPHelperShareExtension;
+			sourceTree = "<group>";
+		};
 		F3DCEB432612131A00980044 = {
 			isa = PBXGroup;
 			children = (
 				F3DCEB4E2612131B00980044 /* YTPIPHelper */,
+				4F6CDC632614B75A00F3D80E /* YTPIPHelperShareExtension */,
 				F3DCEB4D2612131B00980044 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -58,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				F3DCEB4C2612131B00980044 /* YTPIPHelper.app */,
+				4F6CDC622614B75A00F3D80E /* YTPIPHelperShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,7 +117,6 @@
 				F3DCEB522612131B00980044 /* SceneDelegate.h */,
 				F3DCEB532612131B00980044 /* SceneDelegate.m */,
 				F3DCEB5B2612131C00980044 /* Assets.xcassets */,
-				F3DCEB5D2612131C00980044 /* LaunchScreen.storyboard */,
 				F3DCEB602612131C00980044 /* Info.plist */,
 				F3DCEB612612131C00980044 /* main.m */,
 				F3DCEB682612175B00980044 /* MainViewController.h */,
@@ -86,6 +132,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4F6CDC612614B75A00F3D80E /* YTPIPHelperShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F6CDC712614B75A00F3D80E /* Build configuration list for PBXNativeTarget "YTPIPHelperShareExtension" */;
+			buildPhases = (
+				4F6CDC5E2614B75A00F3D80E /* Sources */,
+				4F6CDC5F2614B75A00F3D80E /* Frameworks */,
+				4F6CDC602614B75A00F3D80E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YTPIPHelperShareExtension;
+			productName = YTPIPHelperShareExtension;
+			productReference = 4F6CDC622614B75A00F3D80E /* YTPIPHelperShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F3DCEB4B2612131B00980044 /* YTPIPHelper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F3DCEB652612131C00980044 /* Build configuration list for PBXNativeTarget "YTPIPHelper" */;
@@ -93,10 +156,12 @@
 				F3DCEB482612131B00980044 /* Sources */,
 				F3DCEB492612131B00980044 /* Frameworks */,
 				F3DCEB4A2612131B00980044 /* Resources */,
+				4F6CDC6E2614B75A00F3D80E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4F6CDC6C2614B75A00F3D80E /* PBXTargetDependency */,
 			);
 			name = YTPIPHelper;
 			productName = YTPIPHelper;
@@ -111,6 +176,9 @@
 			attributes = {
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					4F6CDC612614B75A00F3D80E = {
+						CreatedOnToolsVersion = 12.5;
+					};
 					F3DCEB4B2612131B00980044 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -130,16 +198,23 @@
 			projectRoot = "";
 			targets = (
 				F3DCEB4B2612131B00980044 /* YTPIPHelper */,
+				4F6CDC612614B75A00F3D80E /* YTPIPHelperShareExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4F6CDC602614B75A00F3D80E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3DCEB4A2612131B00980044 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3DCEB5F2612131C00980044 /* LaunchScreen.storyboard in Resources */,
 				F3DCEB5C2612131C00980044 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +222,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4F6CDC5E2614B75A00F3D80E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F6CDC662614B75A00F3D80E /* ShareViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F3DCEB482612131B00980044 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -162,18 +245,53 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		F3DCEB5D2612131C00980044 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F3DCEB5E2612131C00980044 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		4F6CDC6C2614B75A00F3D80E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F6CDC612614B75A00F3D80E /* YTPIPHelperShareExtension */;
+			targetProxy = 4F6CDC6B2614B75A00F3D80E /* PBXContainerItemProxy */;
 		};
-/* End PBXVariantGroup section */
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		4F6CDC6F2614B75A00F3D80E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P53D29U9LJ;
+				INFOPLIST_FILE = YTPIPHelperShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pookjw.YTPIPHelper.YTPIPHelperShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F6CDC702614B75A00F3D80E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P53D29U9LJ;
+				INFOPLIST_FILE = YTPIPHelperShareExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.pookjw.YTPIPHelper.YTPIPHelperShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		F3DCEB632612131C00980044 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -183,7 +301,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -242,7 +360,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -329,6 +447,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4F6CDC712614B75A00F3D80E /* Build configuration list for PBXNativeTarget "YTPIPHelperShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F6CDC6F2614B75A00F3D80E /* Debug */,
+				4F6CDC702614B75A00F3D80E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F3DCEB472612131A00980044 /* Build configuration list for PBXProject "YTPIPHelper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
