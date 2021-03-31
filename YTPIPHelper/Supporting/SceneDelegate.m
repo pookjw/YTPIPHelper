@@ -38,12 +38,15 @@
     [self.window makeKeyAndVisible];
     
     //
-    NSURL *openedURL = connectionOptions.URLContexts.allObjects.firstObject.URL;
-    if (openedURL == nil) return;
-    [self requestToVCFromURL:openedURL];
+    
+    [self handleURLContexts:connectionOptions.URLContexts];
 }
 
 - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
+    [self handleURLContexts:URLContexts];
+}
+
+- (void)handleURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
     NSURL *openedURL = URLContexts.allObjects.firstObject.URL;
     if (openedURL == nil) return;
     [self requestToVCFromURL:openedURL];
