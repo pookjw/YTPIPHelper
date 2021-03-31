@@ -9,13 +9,12 @@
 #import "MainViewController.h"
 
 @interface SceneDelegate ()
-@property (strong, nonatomic) MainViewController *mainVC;
+@property (weak, nonatomic) MainViewController *mainVC;
 @end
 
 @implementation SceneDelegate
 
 - (void)dealloc {
-    [_mainVC release];
     [_window release];
     [super dealloc];
 }
