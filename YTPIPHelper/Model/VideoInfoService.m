@@ -144,7 +144,7 @@
 - (NSArray<NSDictionary *> * _Nullable)videoStreamingURLsFromResultInfo:(NSDictionary *)resultInfo
                                                                   error:(NSError ** _Nullable)error {
     NSArray<NSDictionary *> *formats = resultInfo[@"streamingData"][@"formats"];
-    if ((formats == nil) && (*error != NULL)) {
+    if (((formats == nil) || (formats.count == 0)) && (*error != NULL)) {
         *error = [NSError errorWithDomain:NSBundle.mainBundle.bundleIdentifier
                                      code:VideoInfoServiceErrorNoAvailableStreamingData
                                  userInfo:@{NSLocalizedDescriptionKey: @"No available streamingData formats!"}];

@@ -5,6 +5,7 @@
 //  Created by Jinwoo Kim on 3/29/21.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -15,7 +16,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [AVAudioSession.sharedInstance setCategory:AVAudioSessionCategoryPlayback error:nil];
     return YES;
 }
 

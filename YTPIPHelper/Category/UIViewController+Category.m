@@ -26,4 +26,17 @@
     [self showErrorAlertWithMessage:error.localizedDescription];
 }
 
+- (void)showSuccessfulAlert {
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Success!"
+                                          message:nil
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *doneAction = [UIAlertAction actionWithTitle:@"Done"
+                                                         style:UIAlertActionStyleDefault
+                                                       handler:^(UIAlertAction * _Nonnull action) { }];
+    [alertController addAction:doneAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
 @end

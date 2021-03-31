@@ -9,13 +9,13 @@
 #import "MainViewController.h"
 
 @interface SceneDelegate ()
-@property (strong, nonatomic) MainViewController *vc;
+@property (strong, nonatomic) MainViewController *mainVC;
 @end
 
 @implementation SceneDelegate
 
 - (void)dealloc {
-    [_vc release];
+    [_mainVC release];
     [_window release];
     [super dealloc];
 }
@@ -28,10 +28,12 @@
     self.window = window;
     [window release];
     
-    MainViewController *vc = [MainViewController new];
-    self.vc = vc;
-    self.window.rootViewController = vc;
-    [vc release];
+    MainViewController *mainVC = [MainViewController new];
+    self.mainVC = mainVC;
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    self.window.rootViewController = nvc;
+    [mainVC release];
+    [nvc release];
     [self.window makeKeyAndVisible];
 }
 
@@ -51,7 +53,7 @@
         if ([component isEqualToString:@"videoID"]) foundVideoID = YES;
     }
     if (videoID == nil) return;
-    [self.vc requestFromVideoID:videoID];
+    [self.mainVC requestFromVideoID:videoID];
 }
 
 @end

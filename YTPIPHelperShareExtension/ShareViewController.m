@@ -31,6 +31,7 @@
     NSExtensionItem *item = self.extensionContext.inputItems.firstObject;
     NSItemProvider *itemProvider = item.attachments.firstObject;
     __weak typeof(self) weakSelf = self;
+    NSLog(@"%@", itemProvider.registeredTypeIdentifiers);
     if ([itemProvider hasItemConformingToTypeIdentifier:@"public.url"]) {
         [itemProvider loadItemForTypeIdentifier:@"public.url"
                                         options:nil
@@ -43,24 +44,50 @@
                       options:@{}
             completionHandler:^(BOOL success) { }];
         }];
+    } else if ([itemProvider hasItemConformingToTypeIdentifier:@"public.plain-text"]) {
+        [itemProvider loadItemForTypeIdentifier:@"public.plain-text"
+                                        options:nil
+                              completionHandler:^(NSString * _Nullable itemString, NSError *error) {
+            if ((itemString == nil) || (weakSelf == nil)) return;
+            NSURL *itemURL = [NSURL URLWithString:itemString];
+            if (itemURL == nil) return;
+            NSString * _Nullable videoID = [weakSelf videoIDFromURL:itemURL];
+            if (videoID == nil) return;
+            NSURL *urlToOpen = [weakSelf urlToOpenFromVideoID:videoID];
+            [weakSelf openURL:urlToOpen
+                      options:@{}
+            completionHandler:^(BOOL success) { }];
+        }];
     }
 }
 
 - (NSString * _Nullable)videoIDFromURL:(NSURL *)itemURL {
-    if (![itemURL.pathComponents containsObject:@"watch"]) {
+    NSLog(@"%@", itemURL.host);
+    if ([itemURL.host containsString:@"youtube.com"]) {
+        if (![itemURL.pathComponents containsObject:@"watch"]) {
+            return nil;
+        }
+        if (![itemURL.query containsString:@"v="]) {
+            return nil;
+        }
+        NSArray<NSString *> *components = [itemURL.query componentsSeparatedByString:@"="];
+        BOOL foundVideoID = NO;
+        NSString * _Nullable videoID = nil;
+        for (NSString *component in components) {
+            if (foundVideoID) {
+                videoID = [[component componentsSeparatedByString:@"&"] firstObject];
+                break;
+            }
+            if ([component isEqualToString:@"v"]) foundVideoID = YES;
+        }
+        NSLog(@"%@", videoID);
+        return videoID;
+    } else if ([itemURL.host containsString:@"youtu.be"]) {
+        NSLog(@"%@", itemURL.query);
+        return itemURL.query;
+    } else {
         return nil;
     }
-    if (![itemURL.query containsString:@"v="]) {
-        return nil;
-    }
-    NSArray<NSString *> *components = [itemURL.query componentsSeparatedByString:@"="];
-    BOOL foundVideoID = NO;
-    NSString * _Nullable videoID = nil;
-    for (NSString *component in components) {
-        if (foundVideoID) videoID = component;
-        if ([component isEqualToString:@"v"]) foundVideoID = YES;
-    }
-    return videoID;
 }
 
 - (NSURL *)urlToOpenFromVideoID:(NSString *)videoID {

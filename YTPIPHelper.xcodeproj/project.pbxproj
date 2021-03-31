@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F5B607C2614DDAA001F482A /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5B607B2614DDAA001F482A /* MainViewModel.m */; };
+		4F5B60802614EC37001F482A /* MainResultIem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F5B607F2614EC37001F482A /* MainResultIem.m */; };
 		4F6CDC662614B75A00F3D80E /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6CDC652614B75A00F3D80E /* ShareViewController.m */; };
 		4F6CDC6D2614B75A00F3D80E /* YTPIPHelperShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4F6CDC622614B75A00F3D80E /* YTPIPHelperShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F3DCEB512612131B00980044 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DCEB502612131B00980044 /* AppDelegate.m */; };
@@ -43,6 +45,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F5B607A2614DDAA001F482A /* MainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewModel.h; sourceTree = "<group>"; };
+		4F5B607B2614DDAA001F482A /* MainViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewModel.m; sourceTree = "<group>"; };
+		4F5B607E2614EC37001F482A /* MainResultIem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainResultIem.h; sourceTree = "<group>"; };
+		4F5B607F2614EC37001F482A /* MainResultIem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainResultIem.m; sourceTree = "<group>"; };
 		4F6CDC622614B75A00F3D80E /* YTPIPHelperShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = YTPIPHelperShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F6CDC642614B75A00F3D80E /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		4F6CDC652614B75A00F3D80E /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
@@ -81,6 +87,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F5B60752614DD2F001F482A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F3DCEB7126122CED00980044 /* UIViewController+Category.h */,
+				F3DCEB7226122CEE00980044 /* UIViewController+Category.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		4F5B60762614DD3E001F482A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3DCEB682612175B00980044 /* MainViewController.h */,
+				F3DCEB692612175B00980044 /* MainViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F5B60772614DD58001F482A /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				F3DCEB5B2612131C00980044 /* Assets.xcassets */,
+				F3DCEB4F2612131B00980044 /* AppDelegate.h */,
+				F3DCEB502612131B00980044 /* AppDelegate.m */,
+				F3DCEB522612131B00980044 /* SceneDelegate.h */,
+				F3DCEB532612131B00980044 /* SceneDelegate.m */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		4F5B60782614DD82001F482A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F5B607A2614DDAA001F482A /* MainViewModel.h */,
+				4F5B607B2614DDAA001F482A /* MainViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4F5B60792614DD8D001F482A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F3DCEB6B26121B1E00980044 /* VideoInfoService.h */,
+				F3DCEB6C26121B1E00980044 /* VideoInfoService.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F5B607D2614EC1F001F482A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				4F5B607E2614EC37001F482A /* MainResultIem.h */,
+				4F5B607F2614EC37001F482A /* MainResultIem.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		4F6CDC632614B75A00F3D80E /* YTPIPHelperShareExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,19 +175,14 @@
 		F3DCEB4E2612131B00980044 /* YTPIPHelper */ = {
 			isa = PBXGroup;
 			children = (
-				F3DCEB4F2612131B00980044 /* AppDelegate.h */,
-				F3DCEB502612131B00980044 /* AppDelegate.m */,
-				F3DCEB522612131B00980044 /* SceneDelegate.h */,
-				F3DCEB532612131B00980044 /* SceneDelegate.m */,
-				F3DCEB5B2612131C00980044 /* Assets.xcassets */,
+				4F5B60772614DD58001F482A /* Supporting */,
+				4F5B60752614DD2F001F482A /* Category */,
+				4F5B60762614DD3E001F482A /* View */,
+				4F5B60782614DD82001F482A /* ViewModel */,
+				4F5B60792614DD8D001F482A /* Model */,
+				4F5B607D2614EC1F001F482A /* Entity */,
 				F3DCEB602612131C00980044 /* Info.plist */,
 				F3DCEB612612131C00980044 /* main.m */,
-				F3DCEB682612175B00980044 /* MainViewController.h */,
-				F3DCEB692612175B00980044 /* MainViewController.m */,
-				F3DCEB6B26121B1E00980044 /* VideoInfoService.h */,
-				F3DCEB6C26121B1E00980044 /* VideoInfoService.m */,
-				F3DCEB7126122CED00980044 /* UIViewController+Category.h */,
-				F3DCEB7226122CEE00980044 /* UIViewController+Category.m */,
 			);
 			path = YTPIPHelper;
 			sourceTree = "<group>";
@@ -235,7 +293,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3DCEB6D26121B1E00980044 /* VideoInfoService.m in Sources */,
+				4F5B60802614EC37001F482A /* MainResultIem.m in Sources */,
 				F3DCEB512612131B00980044 /* AppDelegate.m in Sources */,
+				4F5B607C2614DDAA001F482A /* MainViewModel.m in Sources */,
 				F3DCEB622612131C00980044 /* main.m in Sources */,
 				F3DCEB542612131B00980044 /* SceneDelegate.m in Sources */,
 				F3DCEB7326122CEE00980044 /* UIViewController+Category.m in Sources */,
@@ -261,6 +321,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P53D29U9LJ;
 				INFOPLIST_FILE = YTPIPHelperShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -280,6 +341,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P53D29U9LJ;
 				INFOPLIST_FILE = YTPIPHelperShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,7 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P53D29U9LJ;
 				INFOPLIST_FILE = YTPIPHelper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -433,7 +495,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P53D29U9LJ;
 				INFOPLIST_FILE = YTPIPHelper/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
