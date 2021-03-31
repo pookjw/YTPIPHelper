@@ -30,15 +30,21 @@
     
     MainViewController *mainVC = [MainViewController new];
     self.mainVC = mainVC;
+    [mainVC loadViewIfNeeded];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:mainVC];
     self.window.rootViewController = nvc;
     [mainVC release];
     [nvc release];
     [self.window makeKeyAndVisible];
+    
+    //
+    NSURL *openedURL = connectionOptions.URLContexts.allObjects.firstObject.URL;
+    if (openedURL == nil) return;
+    [self requestToVCFromURL:openedURL];
 }
 
 - (void)scene:(UIScene *)scene openURLContexts:(NSSet<UIOpenURLContext *> *)URLContexts {
-    NSURL *openedURL = [URLContexts allObjects].firstObject.URL;
+    NSURL *openedURL = URLContexts.allObjects.firstObject.URL;
     if (openedURL == nil) return;
     [self requestToVCFromURL:openedURL];
 }
