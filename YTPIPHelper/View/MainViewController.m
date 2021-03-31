@@ -130,7 +130,9 @@
     AVPlayerViewController *vc = [[AVPlayerViewController alloc] init];
     vc.player = player;
     [player release];
-    [self presentViewController:vc animated:YES completion:^{}];
+    [self presentViewController:vc animated:YES completion:^{
+        [player play];
+    }];
 }
 
 #pragma mark - UICollectionViewDelegate
