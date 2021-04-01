@@ -97,6 +97,7 @@
     ]];
     
     collectionView.delegate = self;
+    collectionView.backgroundColor = UIColor.systemBackgroundColor;
     
     self.cellRegistration = [UICollectionViewCellRegistration registrationWithCellClass:[UICollectionViewCell class]
                                                                    configurationHandler:^(__kindof UICollectionViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath, id  _Nonnull item) {
