@@ -70,16 +70,9 @@
         if (![itemURL.query containsString:@"v="]) {
             return nil;
         }
-        NSArray<NSString *> *components = [itemURL.query componentsSeparatedByString:@"="];
-        BOOL foundVideoID = NO;
-        NSString * _Nullable videoID = nil;
-        for (NSString *component in components) {
-            if (foundVideoID) {
-                videoID = [[component componentsSeparatedByString:@"&"] firstObject];
-                break;
-            }
-            if ([component isEqualToString:@"v"]) foundVideoID = YES;
-        }
+        NSArray<NSString *> *components1 = [itemURL.query componentsSeparatedByString:@"v="];
+        NSArray<NSString *> *components2 = [components1.lastObject componentsSeparatedByString:@"&"];
+        NSString * _Nullable videoID = components2.firstObject;
         NSLog(@"%@", videoID);
         return videoID;
     } else if ([itemURL.host containsString:@"youtu.be"]) {
