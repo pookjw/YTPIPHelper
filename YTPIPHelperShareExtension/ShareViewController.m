@@ -62,22 +62,22 @@
 }
 
 - (NSString * _Nullable)videoIDFromURL:(NSURL *)itemURL {
-    NSLog(@"%@", itemURL.host);
-    if ([itemURL.host containsString:@"youtube.com"]) {
-        if (![itemURL.pathComponents containsObject:@"watch"]) {
-            return nil;
-        }
-        if (![itemURL.query containsString:@"v="]) {
-            return nil;
-        }
-        NSArray<NSString *> *components1 = [itemURL.query componentsSeparatedByString:@"v="];
-        NSArray<NSString *> *components2 = [components1.lastObject componentsSeparatedByString:@"&"];
-        NSString * _Nullable videoID = components2.firstObject;
+    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:itemURL resolvingAgainstBaseURL:NO];
+    NSLog(@"%@", components.host);
+    if ([components.host containsString:@"youtube.com"]) {
+        NSArray<NSURLQueryItem *> * _Nullable queryItems = components.queryItems;
+        NSString * _Nullable __block videoID = nil;
+        [queryItems enumerateObjectsUsingBlock:^(NSURLQueryItem * _Nonnull queryItem, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([queryItem.name isEqualToString:@"v"]) {
+                videoID = queryItem.value;
+                *stop = YES;
+            }
+        }];
         NSLog(@"%@", videoID);
         return videoID;
-    } else if ([itemURL.host containsString:@"youtu.be"]) {
-        NSLog(@"%@", itemURL.query);
-        return itemURL.query;
+    } else if ([components.host containsString:@"youtu.be"]) {
+        NSLog(@"%@", components.query);
+        return components.query;
     } else {
         return nil;
     }
