@@ -60,26 +60,6 @@
     [session finishTasksAndInvalidate];
 }
 
-- (void)requestGreatestQualityVideoStreamingURLUsingVideoID:(NSString *)videoID
-                                          completionHandler:(void (^)(NSURL * _Nullable streamingURL, NSError * _Nullable error))completionHandler {
-    [self requestUsingVideoID:videoID
-            completionHandler:^(NSDictionary * _Nullable resultInfo, NSError * _Nullable error) {
-        if (error) {
-            completionHandler(nil, error);
-            return;
-        }
-        
-        NSError * _Nullable greatestQualityError = nil;
-        NSURL * _Nullable streamingURL = [self greatestQualityVideoStreamingURLFromResultInfo:resultInfo
-                                                       error:&greatestQualityError];
-        if (greatestQualityError) {
-            completionHandler(nil, greatestQualityError);
-            return;
-        }
-        completionHandler(streamingURL, nil);
-    }];
-}
-
 - (void)requestVideoStreamingURLsUsingVideoID:(NSString *)videoID
                             completionHandler:(void (^)(NSArray<NSDictionary *> *  _Nullable formats, NSError * _Nullable error))completionHandler {
     [self requestUsingVideoID:videoID
@@ -100,57 +80,22 @@
     }];
 }
 
-- (NSURL * _Nullable)greatestQualityVideoStreamingURLFromResultInfo:(NSDictionary *)resultInfo
-                                               error:(NSError ** _Nullable)error {
-    NSArray<NSDictionary *> *formats = resultInfo[@"streamingData"][@"formats"];
-    if ((formats == nil) && (*error != NULL)) {
-        *error = [NSError errorWithDomain:NSBundle.mainBundle.bundleIdentifier
-                                     code:VideoInfoServiceErrorNoAvailableStreamingData
-                                 userInfo:@{NSLocalizedDescriptionKey: @"No available streamingData formats!"}];
-        return nil;
-    }
-    
-    NSString * _Nullable __block tempString = nil;
-    NSInteger width = -1;
-    
-    [formats enumerateObjectsUsingBlock:^(NSDictionary * _Nonnull format, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString *stringURL = format[@"url"];
-        NSNumber *widthNumber = format[@"width"];
-        if ((stringURL == nil) || (widthNumber == nil)) return;
-        if ([widthNumber integerValue] > width) {
-            tempString = stringURL;
-        }
-    }];
-    
-    if ((tempString == nil) && (*error != NULL)) {
-        *error = [NSError errorWithDomain:NSBundle.mainBundle.bundleIdentifier
-                                     code:VideoInfoServiceErrorNoAvailableStreamingURL
-                                 userInfo:@{NSLocalizedDescriptionKey: @"No available streaming URL!"}];
-        return nil;
-    }
-    
-    NSURL *resultURL = [[[NSURL alloc] initWithString:(NSString * _Nonnull)tempString] autorelease];
-    
-    if (resultURL == nil) {
-        *error = [NSError errorWithDomain:NSBundle.mainBundle.bundleIdentifier
-                                     code:VideoInfoServiceErrorInvalidStreamingURL
-                                 userInfo:@{NSLocalizedDescriptionKey: @"Invalid streaming URL!"}];
-        return nil;
-    }
-    
-    return resultURL;
-}
-
 - (NSArray<NSDictionary *> * _Nullable)videoStreamingURLsFromResultInfo:(NSDictionary *)resultInfo
                                                                   error:(NSError ** _Nullable)error {
     NSArray<NSDictionary *> *formats = resultInfo[@"streamingData"][@"formats"];
-    if (((formats == nil) || (formats.count == 0)) && (*error != NULL)) {
+    NSArray<NSDictionary *> *adaptiveFormats = resultInfo[@"streamingData"][@"adaptiveFormats"];
+    
+    NSMutableArray<NSDictionary *> *results = [[@[] mutableCopy] autorelease];
+    if (formats) [results addObjectsFromArray:formats];
+    if (adaptiveFormats) [results addObjectsFromArray:adaptiveFormats];
+    
+    if (((results.count == 0)) && (error != NULL)) {
         *error = [NSError errorWithDomain:NSBundle.mainBundle.bundleIdentifier
                                      code:VideoInfoServiceErrorNoAvailableStreamingData
                                  userInfo:@{NSLocalizedDescriptionKey: @"No available streamingData formats!"}];
         return nil;
     }
-    return formats;
+    return [[results copy] autorelease];
 }
 
 - (NSString * _Nullable)playerResponseFromData:(NSData *)data {

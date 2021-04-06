@@ -62,7 +62,7 @@
 }
 
 - (NSString * _Nullable)videoIDFromURL:(NSURL *)itemURL {
-    NSURLComponents *components = [[NSURLComponents alloc] initWithURL:itemURL resolvingAgainstBaseURL:NO];
+    NSURLComponents *components = [[[NSURLComponents alloc] initWithURL:itemURL resolvingAgainstBaseURL:NO] autorelease];
     NSLog(@"%@", components.host);
     if ([components.host containsString:@"youtube.com"]) {
         NSArray<NSURLQueryItem *> * _Nullable queryItems = components.queryItems;
