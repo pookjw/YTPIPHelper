@@ -20,7 +20,8 @@
     if ([object isKindOfClass:[MainResultIem class]]) {
         MainResultIem *compareObject = (MainResultIem *)object;
         return ([self.mainText isEqualToString:compareObject.mainText] &&
-                [self.secondaryText isEqualToString:compareObject.secondaryText]);
+                [self.secondaryText isEqualToString:compareObject.secondaryText] &&
+                [self.url isEqual:compareObject.url]);
     } else {
         return NO;
     }
