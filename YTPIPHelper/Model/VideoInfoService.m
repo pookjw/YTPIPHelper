@@ -11,7 +11,7 @@
 
 - (void)requestUsingVideoID:(NSString *)videoID
          completionHandler:(void (^)(NSDictionary * _Nullable resultInfo, NSError * _Nullable error))completionHandler {
-    NSString *stringURL = [NSString stringWithFormat:@"https://www.youtube.com/get_video_info?video_id=%@", videoID];
+    NSString *stringURL = [NSString stringWithFormat:@"https://www.youtube.com/get_video_info?video_id=%@&html5=1", videoID];
     NSURL *url = [NSURL URLWithString:stringURL];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"GET";
