@@ -11,7 +11,7 @@
 
 - (void)requestUsingVideoID:(NSString *)videoID
          completionHandler:(void (^)(NSDictionary * _Nullable resultInfo, NSError * _Nullable error))completionHandler {
-    NSString *stringURL = [NSString stringWithFormat:@"https://www.youtube.com/get_video_info?video_id=%@&html5=1", videoID];
+    NSString *stringURL = [NSString stringWithFormat:@"https://www.youtube.com/watch?v=%@", videoID];
     NSURL *url = [NSURL URLWithString:stringURL];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = @"GET";
@@ -45,6 +45,7 @@
         NSDictionary *resultInfo = [NSJSONSerialization JSONObjectWithData:[playerResponse dataUsingEncoding:NSUTF8StringEncoding]
                                                                    options:NSJSONReadingMutableContainers
                                                                      error:&jsonError];
+        
         if (jsonError) {
             completionHandler(nil, jsonError);
             return;
@@ -100,20 +101,12 @@
 
 - (NSString * _Nullable)playerResponseFromData:(NSData *)data {
     NSString *stringFromData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSArray<NSString *> *componentsFromString = [stringFromData componentsSeparatedByString:@"&"];
+    NSString *splitString1 = [[stringFromData componentsSeparatedByString:@"var ytInitialPlayerResponse = "] lastObject];
     [stringFromData release];
+    NSString *splitString2 = [[splitString1 componentsSeparatedByString:@"};"] firstObject];
+    NSString *finalString = [NSString stringWithFormat:@"%@}", splitString2];
     
-    for (NSString *s in componentsFromString) {
-        NSArray<NSString *> *componentsFromS = [s componentsSeparatedByString:@"="];
-        if (componentsFromS.count < 2) {
-            continue;
-        }
-        if ([componentsFromS[0] isEqualToString:@"player_response"]) {
-            return componentsFromS[1].stringByRemovingPercentEncoding;
-        }
-    }
-    
-    return nil;
+    return finalString;
 }
 
 @end
